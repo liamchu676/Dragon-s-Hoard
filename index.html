@@ -111,7 +111,42 @@
 
 <canvas id="game-canvas"></canvas>
 
-<div id="title-wrap"><h1>🐉 Dragon's Hoard</h1></div>
+<div id="title-wrap"><h1>🐉 Dragon's Hoard</h1></div><!-- THE OPTIONS AND CHOOSE YOUR DRAGON SETTINGS MENU -->
+<div style="margin-top: 20px; padding: 15px; background: rgba(43, 15, 8, 0.85); border: 2px solid #ffd54f; border-radius: 8px; font-family: 'Cinzel', serif; max-width: 400px; margin-left: auto; margin-right: auto; box-shadow: 0 0 15px #ff5722;">
+  
+  <!-- DRAGON COLOR SELECTION -->
+  <h3 style="color: #ffd54f; margin-top: 0; margin-bottom: 10px; font-size: 1.1rem; text-shadow: 1px 1px #000;">DRAGON ELEMENT COLOR</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 15px;">
+    <button type="button" style="padding: 6px; background: #b71c1c; color: #fff; border: 1px solid #ffd54f; border-radius: 4px; cursor: pointer;">🔥 FIRE (Red)</button>
+    <button type="button" style="padding: 6px; background: #00838f; color: #fff; border: 1px solid #ffd54f; border-radius: 4px; cursor: pointer;">💧 WATER (Teal)</button>
+    <button type="button" style="padding: 6px; background: #4a148c; color: #fff; border: 1px solid #ffd54f; border-radius: 4px; cursor: pointer;">🔮 SHADOW (Purple)</button>
+    <button type="button" style="padding: 6px; background: #1b5e20; color: #fff; border: 1px solid #ffd54f; border-radius: 4px; cursor: pointer;">🍃 NATURE (Green)</button>
+    <button type="button" style="padding: 6px; background: #f57f17; color: #fff; border: 1px solid #ffd54f; border-radius: 4px; cursor: pointer;">⚡ LIGHTNING (Yellow)</button>
+    <button type="button" style="padding: 6px; background: #01579b; color: #fff; border: 1px solid #ffd54f; border-radius: 4px; cursor: pointer;">❄️ ICE (Light Blue)</button>
+  </div>
+
+  <!-- GAMEPLAY DIFFICULTY SETTINGS -->
+  <h3 style="color: #ffd54f; margin-bottom: 10px; font-size: 1.1rem; text-shadow: 1px 1px #000;">QUEST SETTINGS</h3>
+  <div style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <label style="color: #fff; font-size: 0.9rem;">DIFFICULTY:</label>
+    <select id="difficulty-select" style="padding: 5px; background: #222; color: #fff; border: 1px solid #ffd54f; border-radius: 4px;">
+      <option value="easy">Page (Easy)</option>
+      <option value="medium" selected>Knight (Medium)</option>
+      <option value="hard">Paladin (Hard)</option>
+    </select>
+  </div>
+
+  <!-- MUSIC SETTINGS -->
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <label style="color: #fff; font-size: 0.9rem;">BACKGROUND MUSIC:</label>
+    <select id="music-select" style="padding: 5px; background: #222; color: #fff; border: 1px solid #ffd54f; border-radius: 4px;">
+      <option value="track1">🏰 Castle Fortress Theme</option>
+      <option value="track2">🌋 Dragon's Lair Battle</option>
+      <option value="track3">🎻 Medieval Tavern Jig</option>
+    </select>
+  </div>
+</div>
+
 
 <div id="hud">
   <div class="badge"><span class="label">Score</span><span class="value" id="score">0</span></div>
