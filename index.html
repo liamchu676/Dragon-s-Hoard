@@ -1040,8 +1040,66 @@ function changeDragonColorSystem(btnElement, hexColorValue) {
     if (typeof snakeColor !== 'undefined') { snakeColor = hexColorValue; }
     if (typeof SNAKE_COLOR !== 'undefined') { SNAKE_COLOR = hexColorValue; }
     if (typeof themeColor !== 'undefined') { themeColor = hexColorValue; }
+}<!-- FLOATING MEDIEVAL SETTINGS GEAR AND PANEL (FULLY FIXED ENGINE) -->
+<button type="button" onclick="document.getElementById('dragon-settings-overlay').style.display='flex'" style="position: fixed; top: 15px; left: 15px; z-index: 9999; background: #b71c1c; color: #ffd54f; border: 2px solid #ffd54f; border-radius: 8px; padding: 8px 12px; font-family: 'Cinzel', serif; font-size: 0.9rem; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">⚙️ GAME OPTIONS</button>
+
+<div id="dragon-settings-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 10000; justify-content: center; align-items: center; font-family: 'Cinzel', serif;">
+    <div style="background: linear-gradient(135deg, #2d120a 0%, #1a0804 100%); border: 3px solid #ffd54f; border-radius: 24px; padding: 25px; max-width: 400px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.8); text-align: left;">
+        <h2 style="color: #ffd54f; margin-top: 0; margin-bottom: 15px; font-size: 1.4rem; text-align: center; border-bottom: 1px solid rgba(255,213,79,0.3); padding-bottom: 10px;">QUEST OPTIONS</h2>
+        
+        <div style="color: #ffd54f; margin-bottom: 8px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Dragon Element Color</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 15px;">
+            <button type="button" class="drg-clr-btn" style="padding: 5px; border: 2px solid #ffd54f; border-radius: 6px; color: #fff; font-size: 0.75rem; cursor: pointer; font-weight: bold; background:#b71c1c;" onclick="changeDragonColorSystem(this, '#ff5722')">🔥 Fire</button>
+            <button type="button" class="drg-clr-btn" style="padding: 5px; border: 1px solid #555; border-radius: 6px; color: #fff; font-size: 0.75rem; cursor: pointer; font-weight: bold; background:#00838f;" onclick="changeDragonColorSystem(this, '#00bcd4')">💧 Water</button>
+            <button type="button" class="drg-clr-btn" style="padding: 5px; border: 1px solid #555; border-radius: 6px; color: #fff; font-size: 0.75rem; cursor: pointer; font-weight: bold; background:#4a148c;" onclick="changeDragonColorSystem(this, '#9c27b0')">🔮 Shadow</button>
+            <button type="button" class="drg-clr-btn" style="padding: 5px; border: 1px solid #555; border-radius: 6px; color: #fff; font-size: 0.75rem; cursor: pointer; font-weight: bold; background:#1b5e20;" onclick="changeDragonColorSystem(this, '#4caf50')">🍃 Nature</button>
+            <button type="button" class="drg-clr-btn" style="padding: 5px; border: 1px solid #555; border-radius: 6px; color: #fff; font-size: 0.75rem; cursor: pointer; font-weight: bold; background:#e65100;" onclick="changeDragonColorSystem(this, '#ffeb3b')">⚡ Light</button>
+            <button type="button" class="drg-clr-btn" style="padding: 5px; border: 1px solid #555; border-radius: 6px; color: #fff; font-size: 0.75rem; cursor: pointer; font-weight: bold; background:#01579b;" onclick="changeDragonColorSystem(this, '#03a9f4')">❄️ Ice</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <label style="color: rgba(255,235,210,0.82); font-size: 0.85rem; text-transform: uppercase; font-weight: bold;">Difficulty:</label>
+            <select style="padding: 4px 8px; background: #1a0804; color: #fff; border: 1px solid #ffd54f; border-radius: 6px; font-size: 0.8rem;" onchange="window.gameDifficulty=this.value">
+                <option value="easy">Page (Easy)</option>
+                <option value="medium" selected>Knight (Medium)</option>
+                <option value="hard">Paladin (Hard)</option>
+            </select>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <label style="color: rgba(255,235,210,0.82); font-size: 0.85rem; text-transform: uppercase; font-weight: bold;">Music Track:</label>
+            <select style="padding: 4px 8px; background: #1a0804; color: #fff; border: 1px solid #ffd54f; border-radius: 6px; font-size: 0.8rem;" onchange="window.chosenMusic=this.value">
+                <option value="track1">🏰 Castle Keep</option>
+                <option value="track2">🌋 Dragon's Lair</option>
+                <option value="track3">🎻 Medieval Jig</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="document.getElementById('dragon-settings-overlay').style.display='none'" style="background: linear-gradient(135deg, #ff5722 0%, #b71c1c 100%); color: #fff; border: 1px solid #ffd54f; font-family: 'Cinzel', serif; font-size: 1.1rem; padding: 8px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 15px;">SAVE OPTIONS</button>
+    </div>
+</div>
+
+<script>
+function changeDragonColorSystem(btnElement, hexColorValue) {
+    // 1. Give the clicked button a gold border highlight
+    document.querySelectorAll('.drg-clr-btn').forEach(btn => btn.style.border = '1px solid #555');
+    btnElement.style.border = '2px solid #ffd54f';
+    
+    // 2. Lock the global tracker word
+    window.selectedColor = hexColorValue;
+
+    // 3. Force color values across every common name inside your 900 line engine
+    if (typeof snake !== 'undefined') { if(snake.color) snake.color = hexColorValue; }
+    if (typeof config !== 'undefined' && config.snakeColor) { config.snakeColor = hexColorValue; }
+    if (typeof snakeColor !== 'undefined') { snakeColor = hexColorValue; }
+    if (typeof SNAKE_COLOR !== 'undefined') { SNAKE_COLOR = hexColorValue; }
+    if (typeof currentColor !== 'undefined') { currentColor = hexColorValue; }
+    
+    console.log("System locked dragon color variable to:", hexColorValue);
 }
 </script>
+
+
 
 </body>
 </html>
